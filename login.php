@@ -1,15 +1,14 @@
 <?php
-include 'header.php';
-include 'config.php';
+include "header.php";
+include "config.php";
 
 session_start();
-$error = '';
+$error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     // Get form data
-    $email = mysqli_real_escape_string($db, $_POST['email']);
-    $password = $_POST['password'];
+    $email = mysqli_real_escape_string($db, $_POST["email"]);
+    $password = $_POST["password"];
 
     // Check the user in the database
     $sql = "SELECT * FROM users WHERE email = '$email'";
@@ -23,7 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($password != $row["password"]) {
             $error = "Invalid credentials";
         } else {
-            $_SESSION['login_user'] = $email;
+            $_SESSION["login_user"] = $email;
+            $_SESSION["role_user"] = $row["is_admin"];
             header("location: index.php");
         }
     }
@@ -33,12 +33,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  form{
     padding: 30px;
   width: auto;
-  
+
  }
  footer{
     padding-top: 170px;
     font-size:10px;
-    
+
  }
 </style>
 
@@ -46,7 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <form action="" method="POST">
         <?php if (!empty($error)): ?>
-            <div class="alert alert-danger mt-3"><?php echo htmlspecialchars($error); ?></div>
+            <div class="alert alert-danger mt-3"><?php echo htmlspecialchars(
+                $error
+            ); ?></div>
         <?php endif; ?>
         <div class="mb-3">
             <label for="email1" class="form-label">Email</label>
@@ -61,4 +63,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </main>
 
-<?php include 'footer.php'; ?>
+<?php include "footer.php"; ?>
