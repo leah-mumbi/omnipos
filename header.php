@@ -4,83 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>omnipos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXhX0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
     <style>
-    *{
-        margin:0;
-        padding:0;
-    }
-    body{
-    height: 100vh;
-    display: grid;
-    grid-template-areas:
-        'menu header header header header header header header'
-        'menu main main main main main main main'
-        'menu main main main main main main main'
-        'menu main main main main main main main'
-        'menu main main main main main main main';
-    background-color: #ffffff;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100vh;
+            display: grid;
+            grid-template-areas:
+                'header header header header header header header header header header'
+                'menu main main main main main main main main main';
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; 
+        }
 
-    header{
-        grid-area: header;
-        height: 10vh;
-        background-color: gray;
-    }
+        header {
+            grid-area: header;
+            height: 10vh;
+            background: linear-gradient(90deg, #0056b3, #003d80, #0056b3);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
 
-    aside{
-        grid-area: menu;
-        background-color:green;
-    }
+        aside {
+            grid-area: menu;
+            font-size: 14px; /* Resize font */
+            background: linear-gradient(90deg, #0056b3, #003d80);
+            padding: 10px;
+        }
 
-    main{
-        grid-area: main;
-        height: 90vh;
-        background-color: brown;
-    }
+        main {
+            grid-area: main;
+            height: 90vh;
+        }
+
+        a {
+            color: #f4f4f4; /* Change link color */
+            text-decoration: none; /* Remove underline */
+            display: block; /* Make links fill the width */
+            padding: 10px; /* Add padding for clickable area */
+            border-radius: 4px; /* Rounded corners */
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #004080; 
+            text-decoration: none; /* Keep no underline on hover */
+        }
     </style>
-
-    </head>
-    <body class="grid-container">
-    <header>Header</header>
+</head>
+<body class="grid-container">
+    <header>Omnipos</header>
     <aside>
-        <ul>
-            <li>
-                <h1>Orders</h1>
-                <ul>
-                    <li><h3>New order</h3><li>
-                    <li><h3>All orders<h3><li>
-                </ul>
-            </li>
-            <li>
-                <h1>Inventory</h1>
-                <ul>
-                    <li>
-                        <h3>Categories</h3>
-                        <ul>
-                            <li>New Category<li>
-                            <li>All categories<li>
-                            <li>Delete Category<li>
-                        </ul>
-                          
-                    
-                    <li> 
-                        <h3>Products</h3>
-                        <ul>
-                            <li>New Product</li>
-                            <li>All products</li>
-                            <li>Delete Product</li>
-                        </ul>
-<li>
-                </ul>
-            </li>
-            <li>
-                <h1>Reports</h1>
-                    
-            </li>
-            <li>User Management</li>
-            <li>Profile</li>
-            <li>Log out</li>
-        </ul>
+        <nav>
+            <a href="#newOrder">Orders</a>
+            <a href="#newCategory">Categories</a>
+            <a href="#newProduct">Products</a>
+            <a href="#inventoryReports">Inventory Reports</a>
+            <a href="#salesReports">Sales Reports</a>
+            <a href="#newUser">User Management</a>
+            <a href="#profileDetails">Profile</a>
+            <a href="#logout">Log Out</a>
+        </nav>
     </aside>
+    
