@@ -17,6 +17,7 @@ body{
   background-color: #ffffff;
 }
 
+<<<<<<< HEAD
 header{
 	grid-area: header;
     height: 10vh;
@@ -27,6 +28,22 @@ aside{
 	grid-area: menu;
 	background-color:green;
 }
+=======
+    <style>
+        h1 {
+            margin-bottom: 20px;
+              text-transform: uppercase;
+                word-spacing: 10px;
+                text-align: center;
+                width: 100%;
+                
+        }
+
+        .container-fluid {
+            margin-top: 30px; 
+        
+        }
+>>>>>>> 540acc7 (changes)
 
 main{
 	grid-area: main;
@@ -34,7 +51,23 @@ main{
     background-color: brown;
 }
 
+<<<<<<< HEAD
 </style>
+=======
+        .navbar-nav .nav-link {
+            margin-right: 15px;
+            /* Add space between links */
+        }
+
+        .navbar-nav .nav-link:last-child {
+            margin-right: 0;
+            /* Remove margin from the last link */
+        }
+        body{
+              text-align: center;
+        }
+    </style>
+>>>>>>> 540acc7 (changes)
 </head>
 <body class="grid-container">
   <header>Header</header>

@@ -29,6 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+<style>
+ form{
+    padding: 30px;
+  width: auto;
+  
+ }
+ footer{
+    padding-top: 170px;
+    font-size:10px;
+    
+ }
+</style>
 
 <main class="d-flex justify-content-center align-items-center">
 
