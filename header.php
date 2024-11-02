@@ -70,8 +70,8 @@
             <a class="nav-item-link" href="#newProduct">Products</a>
             <a class="nav-item-link" href="#inventoryReports">Inventory Reports</a>
             <a class="nav-item-link" href="#salesReports">Sales Reports</a>
-            <a class="nav-item-link" href="#newUser">User Management</a>
+            <a class="nav-item-link" href="user_management.php">User Management</a>
             <a class="nav-item-link" href="#profileDetails">Profile</a>
-            <a class="nav-item-link" href="#logout">Log Out</a>
+            <a class="nav-item-link" href="logout.php">Log Out</a>
         </nav>
     </aside>
