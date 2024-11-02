@@ -18,7 +18,7 @@
                 'header header header header header header header header header header'
                 'menu main main main main main main main main main';
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4; 
+            background-color: #f4f4f4;
         }
 
         header {
@@ -46,7 +46,7 @@
             height: 90vh;
         }
 
-        a {
+        .nav-item-link {
             color: #f4f4f4; /* Change link color */
             text-decoration: none; /* Remove underline */
             display: block; /* Make links fill the width */
@@ -55,8 +55,8 @@
             transition: background-color 0.3s;
         }
 
-        a:hover {
-            background-color: #004080; 
+        .nav-item-link:hover {
+            background-color: #004080;
             text-decoration: none; /* Keep no underline on hover */
         }
     </style>
@@ -65,14 +65,13 @@
     <header>Omnipos</header>
     <aside>
         <nav>
-            <a href="#newOrder">Orders</a>
-            <a href="#newCategory">Categories</a>
-            <a href="#newProduct">Products</a>
-            <a href="#inventoryReports">Inventory Reports</a>
-            <a href="#salesReports">Sales Reports</a>
-            <a href="#newUser">User Management</a>
-            <a href="#profileDetails">Profile</a>
-            <a href="#logout">Log Out</a>
+            <a class="nav-item-link" href="#newOrder">Orders</a>
+            <a class="nav-item-link" href="#newCategory">Categories</a>
+            <a class="nav-item-link" href="#newProduct">Products</a>
+            <a class="nav-item-link" href="#inventoryReports">Inventory Reports</a>
+            <a class="nav-item-link" href="#salesReports">Sales Reports</a>
+            <a class="nav-item-link" href="#newUser">User Management</a>
+            <a class="nav-item-link" href="#profileDetails">Profile</a>
+            <a class="nav-item-link" href="#logout">Log Out</a>
         </nav>
     </aside>
-    
