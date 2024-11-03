@@ -55,8 +55,8 @@ $result = mysqli_query($db, $sql);
                         echo "<th scope='row'>{$counter}</th>";
                         echo "<td>{$row["name"]}</td>";
                         echo "<td>
-                            <a class='btn btn-sm btn-primary' href='edit_category.php?user_id={$row["id"]}'>Edit</a>
-                            <a class='btn btn-sm btn-danger' href='delete_category.php?user_id={$row["id"]}' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Delete</a>
+                            <a class='btn btn-sm btn-primary' href='edit_category.php?id={$row["id"]}'>Edit</a>
+                            <a class='btn btn-sm btn-danger' href='delete_category.php?id={$row["id"]}' onclick='return confirm(\"Are you sure you want to delete this category?\")'>Delete</a>
                             </td>";
                         echo "</tr>";
                         $counter++;
