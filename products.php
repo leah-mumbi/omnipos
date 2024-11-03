@@ -6,7 +6,6 @@ if (!isset($_SESSION["login_user"])) {
     header("location: login.php");
 }
 
-// $sql = "INSERT INTO `products` ( `name`, `category`, `price`, `quantity`) VALUES ('Xiaomi Redmi 12(4+128)', '1', '13399', '10')"
 $sql = "SELECT * from products";
 $result = mysqli_query($db, $sql);
 ?>
@@ -15,7 +14,7 @@ $result = mysqli_query($db, $sql);
     <section class="row m-auto">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h3>All Products</h3>
-                <a href="new_category.php" class="btn btn-success">New Product</a>
+                <a href="new_product.php" class="btn btn-success">New Product</a>
             </div>
             <table class="table table-striped table-hover">
                 <thead>
