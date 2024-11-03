@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error = "Invalid credentials";
         } else {
             $_SESSION["login_user"] = $email;
+            $_SESSION["user_id"] = $row["id"];
             $_SESSION["role_user"] = $row["is_admin"];
             header("location: index.php");
         }

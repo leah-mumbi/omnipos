@@ -29,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$firstName', '$lastName', '$email', '$phone', '$isAdmin', '$password')";
 
     if (mysqli_query($db, $sql)) {
-        $success = "New user added successfully!";
+        $_SESSION["success"] = "New user added successfully!";
         header("location: user_management.php");
     } else {
-        $error = "Error: " . mysqli_error($db);
+        $_SESSION["error"] = "Error: " . mysqli_error($db);
     }
 }
 ?>
