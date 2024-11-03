@@ -4,6 +4,7 @@ include "config.php";
 session_start();
 if (!isset($_SESSION["login_user"])) {
     header("location: login.php");
+    exit();
 }
 
 // Ensure only users with role 1 can access this page
@@ -36,6 +37,8 @@ $result = mysqli_query($db, $sql);
                         <th scope="col">First Name</th>
                         <th scope="col">Last Name</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Is Admin?</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -48,11 +51,17 @@ $result = mysqli_query($db, $sql);
                         echo "<td>{$row["first_name"]}</td>";
                         echo "<td>{$row["last_name"]}</td>";
                         echo "<td>{$row["email"]}</td>";
+                        echo "<td>{$row["phone"]}</td>";
+                        if ($row["is_admin"]) {
+                            echo "<td>Yes</td>";
+                        } else {
+                            echo "<td>No</td>";
+                        }
                         echo "<td>
-                                    <button class='btn btn-sm btn-primary'>Edit</button>
-                                    <button class='btn btn-sm btn-danger'>Delete</button>
-                                    <button class='btn btn-sm btn-success'>Change Password</button>
-                                  </td>";
+                            <a class='btn btn-sm btn-primary' href='edit_user.php?user_id={$row["id"]}'>Edit</a>
+                            <a class='btn btn-sm btn-danger' href='delete_user.php?user_id={$row["id"]}' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Delete</a>
+                            <a class='btn btn-sm btn-success' href='change_password.php?user_id={$row["id"]}'>Change Password</a>
+                            </td>";
                         echo "</tr>";
                         $counter++;
                     }
