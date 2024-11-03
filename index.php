@@ -93,8 +93,6 @@ if (!isset($_SESSION["login_user"])) {
                 </a>
             </div>
         </section>
-
-        <!-- Reports Section -->
     </div>
 </main>
 
