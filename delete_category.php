@@ -23,6 +23,15 @@ if (!isset($_GET["id"])) {
 
 $id = intval($_GET["id"]);
 
+$category_products = "SELECT name FROM products WHERE category = $id";
+$result = mysqli_query($db, $category_products);
+if ($result && mysqli_num_rows($result) > 0) {
+    $_SESSION["error"] =
+        "Cannot delete category. There are products linked to the category.";
+    header("location: categories.php");
+    exit();
+}
+
 // Fetch existing user data to confirm deletion
 $sql = "SELECT name FROM categories WHERE id = $id";
 $result = mysqli_query($db, $sql);
