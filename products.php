@@ -48,8 +48,8 @@ $result = mysqli_query($db, $sql);
                         echo "<td>{$row["price"]}</td>";
                         echo "<td>{$row["quantity"]}</td>";
                         echo "<td>
-                            <a class='btn btn-sm btn-primary' href='edit_category.php?user_id={$row["id"]}'>Edit</a>
-                            <a class='btn btn-sm btn-danger' href='delete_category.php?user_id={$row["id"]}' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Delete</a>
+                            <a class='btn btn-sm btn-primary' href='edit_product.php?id={$row["id"]}'>Edit</a>
+                            <a class='btn btn-sm btn-danger' href='delete_product.php?id={$row["id"]}' onclick='return confirm(\"Are you sure you want to delete this user?\")'>Delete</a>
                             </td>";
                         echo "</tr>";
                         $counter++;
