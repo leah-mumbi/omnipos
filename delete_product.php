@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["confirm_delete"])) {
         <form action="" method="post">
             <input type="hidden" name="confirm_delete" value="1">
             <button type="submit" class="btn btn-danger">Confirm Delete</button>
-            <a href="categories.php" class="btn btn-secondary">Cancel</a>
+            <a href="products.php" class="btn btn-secondary">Cancel</a>
         </form>
     </div>
 </main>
