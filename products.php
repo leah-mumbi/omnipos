@@ -12,6 +12,28 @@ $result = mysqli_query($db, $sql);
 
 <main class="bg-light">
     <section class="row m-auto">
+            <p>Welcome back, <strong><?php echo $_SESSION[
+                "login_user"
+            ]; ?>!</strong></p>
+
+            <!-- Display success or error messages -->
+            <?php if (!empty($_SESSION["success"])): ?>
+                <div class="alert alert-success">
+                    <?php
+                    echo $_SESSION["success"];
+                    unset($_SESSION["success"]);
+                    ?>
+                </div>
+            <?php endif; ?>
+            <?php if (!empty($_SESSION["error"])): ?>
+                <div class="alert alert-danger">
+                    <?php
+                    echo $_SESSION["error"];
+                    unset($_SESSION["error"]);
+                    ?>
+                </div>
+            <?php endif; ?>
+
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h3>All Products</h3>
                 <a href="new_product.php" class="btn btn-success">New Product</a>
