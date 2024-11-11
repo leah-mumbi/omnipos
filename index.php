@@ -22,7 +22,7 @@ $todays_date = date("Y-m-d");
 $todays_orders_sql = "
     SELECT COUNT(id) AS orders_count, SUM(amount) AS sales_total
     FROM orders
-    WHERE DATE(created_at) = ? AND status = 1"; // Assuming 'status = 1' is for completed orders
+    WHERE DATE(created_at) = ? AND status = 1";
 $stmt = $db->prepare($todays_orders_sql);
 $stmt->bind_param("s", $todays_date);
 $stmt->execute();
