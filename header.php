@@ -69,8 +69,6 @@
             <a class="nav-item-link" href="orders.php">Orders</a>
             <a class="nav-item-link" href="categories.php">Categories</a>
             <a class="nav-item-link" href="products.php">Products</a>
-            <a class="nav-item-link" href="inventory_reports.php">Inventory Reports</a>
-            <a class="nav-item-link" href="sales_reports.php">Sales Reports</a>
             <a class="nav-item-link" href="user_management.php">User Management</a>
             <a class="nav-item-link" href="profile.php">Profile</a>
             <a class="nav-item-link" href="logout.php">Log Out</a>
