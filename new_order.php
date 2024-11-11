@@ -15,8 +15,8 @@ $product_result = mysqli_query($db, $product_sql);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Handle form submission to create a new order
-    $product_id = $_POST['product_id'];
-    $quantity = $_POST['quantity'];
+    $product_id = $_POST["product_id"];
+    $quantity = $_POST["quantity"];
 
     // Get the product price for the selected product
     $price_sql = "SELECT price FROM products WHERE id = ?";
@@ -26,29 +26,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->store_result();
     $stmt->bind_result($price);
     $stmt->fetch();
+    $stmt->close();
 
-    // Calculate total price
     $total_price = $price * $quantity;
-    $status = 'Pending'; // Assuming new orders are "Pending"
 
-    // Insert the new order into the database
-    $insert_sql = "INSERT INTO orders (product_id, quantity, total_price, status, order_date) VALUES (?, ?, ?, ?, NOW())";
-    $stmt = $db->prepare($insert_sql);
-    $stmt->bind_param("iiis", $product_id, $quantity, $total_price, $status);
-    if ($stmt->execute()) {
-        $_SESSION["success"] = "Order placed successfully!";
-        header("Location: orders.php"); // Redirect to orders page after successful submission
-        exit();
-    } else {
-        $_SESSION["error"] = "Error placing order.";
-    }
+    // Add item to the session cart
+    $_SESSION["cart"][] = [
+        "product_id" => $product_id,
+        "product_name" => $product_name,
+        "quantity" => $quantity,
+        "price" => $price,
+        "total_price" => $total_price,
+    ];
+
+    $_SESSION["success"] = "Item added to cart!";
+    header("Location: new_order.php"); // Refresh page to update cart
+    exit();
 }
-
 ?>
 
 <main class="bg-light">
     <section class="row m-auto">
-        <p>Welcome back, <strong><?php echo $_SESSION["login_user"]; ?>!</strong></p>
+        <p>Welcome back, <strong><?php echo $_SESSION[
+            "login_user"
+        ]; ?>!</strong></p>
 
         <!-- Display success or error messages -->
         <?php if (!empty($_SESSION["success"])): ?>
@@ -78,9 +79,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="product_id">Select Product</label>
                 <select class="form-control" id="product_id" name="product_id" required>
                     <option value="">Select a product</option>
-                    <?php while ($product = mysqli_fetch_assoc($product_result)): ?>
-                        <option value="<?php echo $product['id']; ?>">
-                            <?php echo $product['name']; ?> - $<?php echo $product['price']; ?>
+                    <?php while (
+                        $product = mysqli_fetch_assoc($product_result)
+                    ): ?>
+                        <option value="<?php echo $product["id"]; ?>">
+                            <?php echo $product[
+                                "name"
+                            ]; ?> - $<?php echo $product["price"]; ?>
                         </option>
                     <?php endwhile; ?>
                 </select>
@@ -89,7 +94,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="quantity">Quantity</label>
                 <input type="number" class="form-control" id="quantity" name="quantity" min="1" required>
             </div>
-            <button type="submit" class="btn btn-success">Place Order</button>
+            <button type="submit" class="btn btn-success">Add Item</button>
+            <a class="btn btn-success" href="finalize_order.php">Finish Order</a>
         </form>
     </section>
 </main>

@@ -16,7 +16,9 @@ $result = mysqli_query($db, $sql);
 
 <main class="bg-light">
     <section class="row m-auto">
-        <p>Welcome back, <strong><?php echo $_SESSION["login_user"]; ?>!</strong></p>
+        <p>Welcome back, <strong><?php echo $_SESSION[
+            "login_user"
+        ]; ?>!</strong></p>
 
         <!-- Display success or error messages -->
         <?php if (!empty($_SESSION["success"])): ?>
@@ -40,7 +42,7 @@ $result = mysqli_query($db, $sql);
             <h3>All Orders</h3>
             <a href="new_order.php" class="btn btn-success">New Order</a>
         </div>
-        
+
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
@@ -57,18 +59,18 @@ $result = mysqli_query($db, $sql);
                     $counter = 1; // Counter for row numbers
                     while ($row = mysqli_fetch_assoc($result)) {
                         // Calculate total price
-                        $total_price = $row['quantity'] * $row['price']; // Assuming each order has a price per item
+                        $total_price = $row["quantity"] * $row["price"]; // Assuming each order has a price per item
 
                         echo "<tr>";
                         echo "<th scope='row'>{$row["id"]}</th>";
                         echo "<td>{$row["amount"]}</td>";
-                         echo "<td>{$row["payment_method"]}</td>";
+                        echo "<td>{$row["payment_method"]}</td>";
                         echo "<td>{$row["status"]}</td>";
                         echo "<td>{$row["created_at"]}</td>";
                         echo "<td>{$row["updated_at"]}</td>";
                         echo "<td>
-                            <a class='btn btn-sm btn-primary' href='order_details.php?id={$row["order_id"]}'>View</a>
-                            <a class='btn btn-sm btn-danger' href='delete_order.php?id={$row["order_id"]}' onclick='return confirm(\"Are you sure you want to delete this order?\")'>Delete</a>
+                            <a class='btn btn-sm btn-primary' href='order_details.php?id={$row["id"]}'>View</a>
+                            <a class='btn btn-sm btn-danger' href='delete_order.php?id={$row["id"]}' onclick='return confirm(\"Are you sure you want to delete this order?\")'>Delete</a>
                             </td>";
                         echo "</tr>";
                         $counter++;
