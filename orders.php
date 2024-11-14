@@ -70,7 +70,6 @@ $result = mysqli_query($db, $sql);
                         echo "<td>{$row["updated_at"]}</td>";
                         echo "<td>
                             <a class='btn btn-sm btn-primary' href='order_details.php?id={$row["id"]}'>View</a>
-                            <a class='btn btn-sm btn-danger' href='delete_order.php?id={$row["id"]}' onclick='return confirm(\"Are you sure you want to delete this order?\")'>Delete</a>
                             </td>";
                         echo "</tr>";
                         $counter++;
